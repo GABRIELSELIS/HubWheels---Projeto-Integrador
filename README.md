@@ -27,15 +27,3 @@ img/           # logo HubWheels e imagem de fundo
 js/app.js      # regras de negócio, lembretes, prontuário, link do comprador
 ```
 
-## Como executar localmente
-Basta abrir o `index.html` no navegador (precisa de internet para carregar o Bootstrap via CDN).
-Opcionalmente, com servidor local (necessário para notificações em alguns navegadores):
-```bash
-git clone <URL-DO-REPOSITORIO>
-cd hubwheels
-python -m http.server 8000     # ou: npx serve
-```
-Acesse http://localhost:8000. Para publicar online, use GitHub Pages.
-
-## Observação
-O link do comprador carrega o prontuário (sem as fotos das notas) codificado no próprio endereço; para o comprador abrir, o site precisa estar publicado (ex.: GitHub Pages).
