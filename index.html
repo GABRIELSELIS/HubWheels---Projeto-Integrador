@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HubWheels | Hub de veículos</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link rel="icon" type="image/png" href="img/logo.png">
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar hw-nav mb-3">
+  <div class="container justify-content-center" style="max-width:720px">
+    <a class="navbar-brand m-0" href="./"><img src="img/logo.png" alt="HubWheels" class="hw-logo"></a>
+  </div>
+</nav>
+<p class="text-center text-white fw-semibold hw-tag mb-3 px-3">Hub digital de manutenção e histórico veicular</p>
+
+<main class="container pb-5" style="max-width:720px">
+
+  <!-- Visão do comprador (link compartilhado) -->
+  <section id="viewShare" class="d-none"></section>
+
+  <!-- Cadastro do veículo -->
+  <section id="viewEmpty" class="d-none">
+    <div class="card shadow-sm"><div class="card-body">
+      <h5 class="card-title"><i class="bi bi-plus-circle me-1"></i>Cadastre seu veículo</h5>
+      <div class="row g-2">
+        <div class="col-12"><input id="v_model" class="form-control" placeholder="Modelo (ex: Onix 1.0 2019)"></div>
+        <div class="col-6"><input id="v_plate" class="form-control" placeholder="Placa"></div>
+        <div class="col-3"><input id="v_year" type="number" class="form-control" placeholder="Ano"></div>
+        <div class="col-3"><input id="v_km" type="number" class="form-control" placeholder="KM"></div>
+        <div class="col-6"><input id="v_buy" type="number" class="form-control" placeholder="Valor de compra (R$)"></div>
+        <div class="col-6"><input id="v_mkt" type="number" class="form-control" placeholder="Valor de mercado (R$)"></div>
+        <div class="col-12 d-grid"><button class="btn btn-primary btn-lg" onclick="addVehicle()">Salvar veículo</button></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- App -->
+  <section id="viewApp" class="d-none">
+    <div class="card shadow-sm mb-3"><div class="card-body">
+      <h4 id="t_model" class="mb-0"></h4>
+      <div id="t_info" class="text-muted small mb-3"></div>
+      <div class="row text-center">
+        <div class="col-6"><div class="text-muted small">Gasto total</div><div id="t_total" class="fs-4 fw-bold"></div></div>
+        <div class="col-6"><div class="text-muted small">Desvalorização</div><div id="t_dep" class="fs-4 fw-bold">-</div></div>
+      </div>
+      <div class="input-group mt-3">
+        <input id="m_val" type="number" class="form-control" placeholder="Atualizar valor de mercado (R$)">
+        <button class="btn btn-outline-danger" onclick="setMarket()">Atualizar</button>
+      </div>
+    </div></div>
+
+    <div class="card shadow-sm mb-3"><div class="card-body">
+      <h5 class="card-title"><i class="bi bi-bell-fill me-1"></i>Lembretes</h5>
+      <ul id="rem" class="list-group list-group-flush mb-2"></ul>
+      <div class="input-group">
+        <input id="r_title" class="form-control" placeholder="Novo lembrete">
+        <input id="r_date" type="date" class="form-control">
+        <button class="btn btn-outline-danger" onclick="addRem()"><i class="bi bi-plus-lg"></i></button>
+      </div>
+    </div></div>
+
+    <div class="card shadow-sm mb-3"><div class="card-body">
+      <h5 class="card-title"><i class="bi bi-receipt me-1"></i>Registro rápido pós-oficina</h5>
+      <label class="btn btn-outline-danger w-100 mb-2"><i class="bi bi-camera-fill me-1"></i>Fotografar nota
+        <input id="s_photo" type="file" accept="image/*" capture="environment" hidden onchange="prev(this)"></label>
+      <div id="s_prev" class="small text-muted mb-2"></div>
+      <select id="s_type" class="form-select mb-2"><option>Troca de óleo</option><option>Pneus</option><option>Freios</option><option>Revisão</option><option>Peça trocada</option><option>Outro</option></select>
+      <textarea id="s_desc" rows="2" class="form-control mb-2" placeholder="O que foi feito / peças"></textarea>
+      <div class="row g-2 mb-2">
+        <div class="col-6"><input id="s_cost" type="number" step="0.01" class="form-control" placeholder="Valor (R$)"></div>
+        <div class="col-6"><input id="s_km" type="number" class="form-control" placeholder="KM"></div>
+      </div>
+      <div class="form-check mb-2"><input class="form-check-input" type="checkbox" id="s_q"><label class="form-check-label" for="s_q">Peça de qualidade / original</label></div>
+      <div class="d-grid"><button class="btn btn-primary" onclick="addService()">Salvar registro</button></div>
+    </div></div>
+
+    <div class="card shadow-sm mb-3"><div class="card-body">
+      <h5 class="card-title"><i class="bi bi-journal-text me-1"></i>Prontuário do veículo</h5>
+      <ul id="hist" class="list-group list-group-flush mb-3"></ul>
+      <div class="d-grid"><button class="btn btn-warning fw-bold" onclick="share()"><i class="bi bi-whatsapp me-1"></i>Gerar link para o comprador</button></div>
+      <div id="link" class="small mt-2 text-break"></div>
+    </div></div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

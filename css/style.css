@@ -1,0 +1,20 @@
+/* Identidade HubWheels: vermelho #E8192C, amarelo #FDE001, grafite #17171C */
+:root{--hw-red:#e8192c;--hw-yellow:#fde001;--hw-dark:#17171c;
+  --bs-primary:#e8192c;--bs-primary-rgb:232,25,44;--bs-link-color:#c4101f}
+body{min-height:100vh;
+  background:linear-gradient(rgba(10,10,14,.55),rgba(10,10,14,.78)),url("../img/bg.jpg") center/cover fixed no-repeat;
+  background-color:var(--hw-dark)}
+.hw-nav{background:rgba(23,23,28,.88);backdrop-filter:blur(6px);border-bottom:4px solid var(--hw-red)}
+.hw-logo{height:46px;width:auto;display:block}
+.hw-tag{text-shadow:0 1px 4px #000;letter-spacing:.3px}
+.card{border:0;border-radius:14px;background:rgba(255,255,255,.96);box-shadow:0 4px 18px rgba(0,0,0,.35)!important}
+.card-title{color:var(--hw-dark);border-left:5px solid var(--hw-red);padding-left:8px}
+.btn{border-radius:10px;font-weight:600}
+.btn-primary{--bs-btn-bg:var(--hw-red);--bs-btn-border-color:var(--hw-red);--bs-btn-hover-bg:#c4101f;--bs-btn-hover-border-color:#c4101f;
+  --bs-btn-active-bg:#a50d19;--bs-btn-active-border-color:#a50d19}
+.btn-outline-danger{--bs-btn-color:#c4101f;--bs-btn-border-color:#c4101f;--bs-btn-hover-bg:#e8192c;--bs-btn-hover-border-color:#e8192c}
+.btn-warning{--bs-btn-bg:var(--hw-yellow);--bs-btn-border-color:var(--hw-yellow);--bs-btn-color:#17171c;
+  --bs-btn-hover-bg:#e6c900;--bs-btn-hover-border-color:#e6c900;--bs-btn-hover-color:#17171c}
+.form-control:focus,.form-select:focus{border-color:var(--hw-red);box-shadow:0 0 0 .2rem rgba(232,25,44,.2)}
+.alert-warning{background:var(--hw-yellow);border:0;color:var(--hw-dark);font-weight:600}
+.nota-thumb{width:48px;height:48px;object-fit:cover;border-radius:8px}
